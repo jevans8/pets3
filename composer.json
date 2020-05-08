@@ -1,0 +1,16 @@
+{
+  "name": "328/pets3",
+  "authors": [
+    {
+      "name": "Aaron Tadina",
+      "email": "atadina@mail.greenriver.edu"
+    },
+    {
+      "name": "Julia Evans",
+      "email": "jevans8@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}

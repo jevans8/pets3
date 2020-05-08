@@ -14,6 +14,7 @@ require_once('vendor/autoload.php');
 $f3 = Base::instance();
 $f3->set('colors', array('pink', 'green', 'blue'));
 
+////////////////////////////////////////////////////////////////////////////////////////
 //Default route
 $f3->route('GET /', function(){
     //echo '<h1>My Pets</h1>';
@@ -27,6 +28,7 @@ $f3->route('GET /', function(){
 
 });
 
+////////////////////////////////////////////////////////////////////////////////////////
 //Order route
 $f3->route('GET|POST /order', function($f3){
 
@@ -56,8 +58,9 @@ $f3->route('GET|POST /order', function($f3){
 
 });
 
+////////////////////////////////////////////////////////////////////////////////////////
 //Order summary route
-$f3->route('GET /summary', function(){
+$f3->route('GET|POST /summary', function(){
 
     //instantiate new template object
     $view = new Template();

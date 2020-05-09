@@ -21,20 +21,25 @@
 <div class="container">
     <h1>Order a Pet</h1>
 
-    <h2>{{@errors}}<br>{{@colorError}}</h2>
+    <p>{{@errors}}<br>{{@colorError}}</p>
 
     <form action="#" method="post" class="form-horizontal">
 
         <!-- get pet type -->
         <div class="form-group">
-            <label for="pet" class="col-sm-2 control-label">What kind of pet would your like to order?</label>
+            <label for="pet" class="col-sm-2 control-label">What kind of pet would you like to order?</label>
 
             <div class="col-sm-4">
-                <input class="form-control" type="text" name="pet" id="pet">
+                <input
+                    <check if="{{ @pet == @animal }}">selected</check>
+                        class="form-control" type="text" name="pet" id="pet">
             </div>
         </div>
 
         <!-- get pet color -->
+        <check if="{{ isset(@colorError) }}">
+            <p>{{ @colorError }}</p>
+        </check>
         <div class="form-group">
             <label class="col-sm-2 control-label">Select a color</label>
 
@@ -42,7 +47,10 @@
             <select id="petColor" name="color">
                 <option value="black">-Select a Color-</option>
                 <repeat group="{{ @colors }}" value="{{ @colorOption }}">
-                    <option value="{{ @colorOption }}">{{ @colorOption }}</option>
+                    <option
+                        <check if="{{ @colorOption == @color }}">selected</check>
+                            value="{{ @colorOption }}">{{ @colorOption }}
+                    </option>
                 </repeat>
             </select>
         </div>

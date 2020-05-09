@@ -30,8 +30,11 @@
             <label for="pet" class="col-sm-2 control-label">What kind of pet would you like to order?</label>
 
             <div class="col-sm-4">
-                <input
-                    <check if="{{ @pet == @animal }}">selected</check>
+                <input id="pet"
+<!--                       if the session.animal is set it means the user has an input-->
+<!--                       thats valid thus making the value to the session.animal-->
+<!--                       makes the input sticky-->
+                    <check if="{{ isset(@SESSION.animal)}}">value="{{@SESSION.animal}}"</check>
                         class="form-control" type="text" name="pet" id="pet">
             </div>
         </div>
@@ -47,9 +50,18 @@
             <select id="petColor" name="color">
                 <option value="black">-Select a Color-</option>
                 <repeat group="{{ @colors }}" value="{{ @colorOption }}">
+                    <!--checks if the input that was selected on the select is on the
+                    color array.
+                    if it this then we call selected then selects the value that's been submitted.
+                    else sets it to the default select values.
+                    -->
                     <option
-                        <check if="{{ @colorOption == @color }}">selected</check>
+                        <check if="{{ @colorOption == @SESSION.color }}">selected
+                            value="{{ @SESSION.color }}">{{ @SESSION.color }}
+                    <false>
                             value="{{ @colorOption }}">{{ @colorOption }}
+                    </false>
+                        </check>
                     </option>
                 </repeat>
             </select>
